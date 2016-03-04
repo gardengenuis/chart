@@ -28,22 +28,20 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
-
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-
+package org.garden.chart.impl.echart;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: Constants 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午3:08:23 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public class Constants {
+	public static final String TEMPLATE_KEY = "chart";
+	
+	public static final String TEMPLATE_NAME_K = "k.vm";
+	public static final String TEMPLATE_NAME_FORCE = "force.vm";
+	public static final String TEMPLATE_NAME_AXIS = "axis.vm";
+	
+	
 }

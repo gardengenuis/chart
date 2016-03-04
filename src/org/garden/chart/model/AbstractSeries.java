@@ -28,22 +28,71 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.model;
 
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-
+import java.util.List;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: AbstractTitle 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午1:59:12 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public abstract class AbstractSeries implements ISeries {
+	protected String type;
+	protected String name;
+	protected String stack;
+	protected List<ISeriesData> data;
+	protected List<ICategories> categories;
+	protected List<ISeries> series;
+	
+	/**
+	 * @param type
+	 * @param name
+	 * @param stack
+	 * @param data
+	 * @param categories
+	 * @param series
+	 */
+	public AbstractSeries(String type, String name, String stack, List<ISeriesData> data, List<ICategories> categories,
+			List<ISeries> series) {
+
+		this.type = type;
+		this.name = name;
+		this.stack = stack;
+		this.data = data;
+		this.categories = categories;
+		this.series = series;
+	}
+	@Override
+	public String getType() {
+		return this.type;
+	}
+	@Override
+	public String getName() {
+
+		return this.name;
+	}
+	@Override
+	public String getStack() {
+
+		return this.stack;
+	}
+	@Override
+	public List<ISeriesData> getData() {
+
+		return this.data;
+	}
+	@Override
+	public List<ICategories> getCategories() {
+
+		return this.categories;
+	}
+	@Override
+	public List<ISeries> getSeries() {
+
+		return this.series;
+	}
+	
+
 }

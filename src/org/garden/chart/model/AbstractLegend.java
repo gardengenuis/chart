@@ -28,22 +28,32 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.model;
 
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-
+import java.util.List;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: AbstractTitle 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午1:59:12 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public abstract class AbstractLegend implements ILegend {
+	protected List<String> data;
+	
+	/**
+	 * @param data
+	 */
+	public AbstractLegend(List<String> data) {
+
+		this.data = data;
+	}
+
+	@Override
+	public List<String> getData() {
+
+		return this.data;
+	}
+	
+
 }

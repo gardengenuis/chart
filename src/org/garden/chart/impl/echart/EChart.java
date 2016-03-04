@@ -28,22 +28,67 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.impl.echart;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.garden.chart.AbstractChart;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
-
+import org.garden.utils.VelocityUtils;
+import org.garden.utils.VelocityUtils.LoadType;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: EChart 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午2:50:38 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public class EChart extends AbstractChart {
+	protected String templatePath;
+	protected String templateName;
+	
+	/**
+	 * @param title
+	 * @param legend
+	 * @param series
+	 */
+	protected EChart(ITitle title, ILegend legend, ISeries series, String templatePath, String templateName) {
+		super(title, legend, series);
+		this.templateName = templateName;
+		this.templatePath = templatePath;
+	}
+	
+	protected EChart(ITitle title, ILegend legend, ISeries series) {
+		super(title, legend, series);
+		this.templateName = "/" + this.getClass().getPackage().getName().replaceAll("\\.", "/") + "/" + getTemplateName();
+		this.templatePath = null;
+	}
+	/**
+	 * @return
+	 */
+	protected String getTemplateName() {
+		return null;
+	}
+	
+	@Override
+	public String toScript() {
+		String script = "";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		params.put(Constants.TEMPLATE_KEY, this);
+		
+		if ( StringUtils.isEmpty(templatePath)) {	// 取默认classpath下的模板
+			script = VelocityUtils.template2String(templatePath, templateName, params, LoadType.CLASSPATH);
+		} else { // 用户自定义模板路径
+			script = VelocityUtils.template2String(templatePath, templateName, params, LoadType.FILE);
+		}
+		
+		return script;
+	}
+
 }

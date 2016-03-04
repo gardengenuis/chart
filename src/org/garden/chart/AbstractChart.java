@@ -34,16 +34,54 @@ import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
 
-
 /** 
-* @ClassName: IChart 
+* @ClassName: AbstractChart 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 上午9:27:51 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public abstract class AbstractChart implements IChart {
+	protected ITitle title;
+	protected ILegend legend;
+	protected ISeries series;
+	
+	
+	/**
+	 * @param title
+	 * @param legend
+	 * @param series
+	 */
+	protected AbstractChart(ITitle title, ILegend legend, ISeries series) {
+		this.title = title;
+		this.legend = legend;
+		this.series = series;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.garden.chart.IChart#getTitle()
+	 */
+	@Override
+	public ITitle getTitle() {
+
+		return this.title;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.garden.chart.IChart#getLegend()
+	 */
+	@Override
+	public ILegend getLegend() {
+
+		return this.legend;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.garden.chart.IChart#getSeries()
+	 */
+	@Override
+	public ISeries getSeries() {
+
+		return this.series;
+	}
+
 }

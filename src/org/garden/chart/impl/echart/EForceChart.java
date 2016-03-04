@@ -28,22 +28,44 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.impl.echart;
 
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
 
-
 /** 
-* @ClassName: IChart 
+* @ClassName: EForceChart 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午3:32:56 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public class EForceChart extends EChart {	
+	/**
+	 * @param title
+	 * @param legend
+	 * @param series
+	 * @param templatePath
+	 * @param templateName
+	 */
+	public EForceChart(ITitle title, ILegend legend, ISeries series, String templatePath, String templateName) {
+		super(title, legend, series, templatePath, templateName);
+
+	}
+
+	/**
+	 * @param title
+	 * @param legend
+	 * @param series
+	 */
+	public EForceChart(ITitle title, ILegend legend, ISeries series) {
+		super(title, legend, series);
+
+	}
+
+	@Override
+	protected String getTemplateName() {
+
+		return Constants.TEMPLATE_NAME_FORCE;
+	}
 }

@@ -28,22 +28,45 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.impl.echart.model;
 
-import org.garden.chart.model.ILegend;
+import java.util.List;
+
+import org.garden.chart.model.AbstractForceSeries;
+import org.garden.chart.model.ICategories;
+import org.garden.chart.model.ILinks;
+import org.garden.chart.model.INodes;
 import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-
+import org.garden.chart.model.ISeriesData;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: EForceSeries 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月4日 下午3:22:14 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public class EForceSeries extends AbstractForceSeries {
+
+	/**
+	 * @param type
+	 * @param name
+	 * @param stack
+	 * @param data
+	 * @param categories
+	 * @param series
+	 * @param nodes
+	 * @param links
+	 */
+	public EForceSeries(String type, String name, String stack, List<ISeriesData> data, List<ICategories> categories,
+			List<ISeries> series, List<INodes> nodes, List<ILinks> links) {
+		super(type, name, stack, data, categories, series, nodes, links);
+	}
+
+	public EForceSeries(List<ISeries> series) {
+		super(null, null, null, null, null, series, null, null);
+	}
+	
+	public EForceSeries(String type, String name, List<ICategories> categories, List<INodes> nodes, List<ILinks> links) {
+		super(type, name, null, null, categories, null, nodes, links);
+	}
 }

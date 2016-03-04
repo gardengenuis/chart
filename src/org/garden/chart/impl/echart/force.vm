@@ -1,0 +1,73 @@
+#set( $chart = $params.get("chart"))
+{
+	title : {
+        text: '$!{chart.title.text}',
+        subtext: '$!{chart.title.subtext}'
+    },
+    legend: {
+        data:[
+		 #foreach($data in $chart.legend.data)
+		 '$!{data}'#if( $foreach.hasNext ),#end
+		 #end
+		]
+    },
+    series : [
+    	#foreach($series in $chart.series.series)
+        {
+            name:'$!{series.name}',
+            type:'$!{series.type}',
+            categories : [
+            	#foreach($categories in $series.categories)
+				{
+                    name: '$!{categories.name}'
+                }#if( $foreach.hasNext ),#end
+                #end
+            ],
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true,
+                        textStyle: {
+                            color: '#333'
+                        }
+                    },
+                    nodeStyle : {
+                        brushType : 'both',
+                        borderColor : 'rgba(255,215,0,0.4)',
+                        borderWidth : 1
+                    },
+                    linkStyle: {
+                        type: 'curve'
+                    }
+                }
+            },
+            useWorker: false,
+            minRadius : 25,
+            maxRadius : 40,
+            gravity: 1.1,
+            scaling: 1.1,
+            roam: 'move',
+            nodes:[
+            	#foreach($nodes in $series.nodes)
+                {
+                	category:$!{nodes.category},
+					name: '$!{nodes.name}',
+					value: '$!{nodes.value}',
+					label: '$!{nodes.label}'
+				}#if( $foreach.hasNext ),#end
+				#end
+            ],
+            links : [
+                #foreach($links in $series.links)
+                {
+                	source:'$!{links.source}',
+					target: '$!{links.target}',
+					name : '$!{links.name}'
+				}#if( $foreach.hasNext ),#end
+				#end
+            ]
+        }#if( $foreach.hasNext ),#end
+        #end
+    ]
+};
+                    

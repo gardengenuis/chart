@@ -28,22 +28,26 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart;
+package org.garden.chart.impl.echart.model;
 
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
+import java.util.List;
 
+import org.garden.chart.model.AbstractXYAxis;
+import org.garden.chart.model.IAxis;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: EXYAxis 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午4:22:30 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public class EXYAxis extends AbstractXYAxis {
+
+	/**
+	 * @param axis
+	 */
+	public EXYAxis(List<IAxis> axis) {
+		super(axis);
+	}
+
 }

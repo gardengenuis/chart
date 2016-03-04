@@ -30,20 +30,15 @@
  */
 package org.garden.chart;
 
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-
+import org.garden.chart.model.IXYAxis;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: IAxis 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 下午1:44:15 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public interface IAxisChart extends IChart {
+	public IXYAxis getXAxis();
+	public IXYAxis getYAxis();
 }

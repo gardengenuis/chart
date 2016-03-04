@@ -33,17 +33,41 @@ package org.garden.chart;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
-
+import org.garden.chart.model.IXYAxis;
 
 /** 
-* @ClassName: IChart 
+* @ClassName: AbstractChart 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月2日 下午8:44:15 
+* @date 2016年3月3日 上午9:27:51 
 */
-public interface IChart {
-	public ITitle getTitle();
-	public ILegend getLegend();
-	public ISeries getSeries();
-	public String toScript();
+public abstract class AbstractAxisChart extends AbstractChart implements IAxisChart {
+	protected IXYAxis xAxis;
+	protected IXYAxis yAxis;
+	
+	/**
+	 * @param title
+	 * @param legend
+	 * @param series
+	 * @param xAxis
+	 * @param yAxis
+	 */
+	protected AbstractAxisChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+		super(title, legend, series);
+		this.xAxis = xAxis;
+		this.yAxis = yAxis;
+	}
+	
+	@Override
+	public IXYAxis getXAxis() {
+
+		return this.xAxis;
+	}
+
+	@Override
+	public IXYAxis getYAxis() {
+
+		return this.yAxis;
+	}
+	
 }
