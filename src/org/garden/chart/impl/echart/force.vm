@@ -53,7 +53,12 @@
                 	category:$!{nodes.category},
 					name: '$!{nodes.name}',
 					value: '$!{nodes.value}',
-					label: '$!{nodes.label}'
+					label: '$!{nodes.label}',
+					itemStyle: {
+					    normal: {
+					        color:'$!{nodes.itemStyle.normal.color}'
+					    }
+					}
 				}#if( $foreach.hasNext ),#end
 				#end
             ],

@@ -41,4 +41,5 @@ public interface INodes {
 	public String getName();
 	public String getValue();
 	public String getLabel();
+	public IItemStyle getItemStyle();
 }

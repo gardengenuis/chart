@@ -30,8 +30,8 @@
  */
 package org.garden.chart.impl.echart.model;
 
-import org.garden.chart.model.AbstractNodes;
-import org.garden.chart.model.IItemStyle;
+import org.garden.chart.model.AbstractItemStyle;
+import org.garden.chart.model.INormal;
 
 /** 
 * @ClassName: ENodes 
@@ -39,15 +39,12 @@ import org.garden.chart.model.IItemStyle;
 * @author Garden Lee
 * @date 2016年3月4日 下午3:49:00 
 */
-public class ENodes extends AbstractNodes {
+public class EItemStyle extends AbstractItemStyle {
 
 	/**
-	 * @param name
-	 * @param category
-	 * @param value
+	 * @param normal
 	 */
-	public ENodes(String name, String category, String value, String label, IItemStyle itemStyle) {
-		super(name, category, value, label, itemStyle);
+	public EItemStyle(INormal normal) {
+		super(normal);
 	}
-
 }

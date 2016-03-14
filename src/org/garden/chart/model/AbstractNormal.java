@@ -28,26 +28,29 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart.impl.echart.model;
-
-import org.garden.chart.model.AbstractNodes;
-import org.garden.chart.model.IItemStyle;
+package org.garden.chart.model;
 
 /** 
-* @ClassName: ENodes 
+* @ClassName: AbstractTitle 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月4日 下午3:49:00 
+* @date 2016年3月3日 下午1:59:12 
 */
-public class ENodes extends AbstractNodes {
+public abstract class AbstractNormal implements INormal {
+	protected String color;
 
 	/**
-	 * @param name
-	 * @param category
-	 * @param value
+	 * @param color
 	 */
-	public ENodes(String name, String category, String value, String label, IItemStyle itemStyle) {
-		super(name, category, value, label, itemStyle);
+	public AbstractNormal(String color) {
+		super();
+		this.color = color;
 	}
 
+	@Override
+	public String getColor() {
+		return this.color;
+	}
+
+	
 }

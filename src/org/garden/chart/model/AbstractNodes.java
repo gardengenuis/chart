@@ -41,18 +41,24 @@ public abstract class AbstractNodes implements INodes {
 	protected String category;
 	protected String value;
 	protected String label;
+	protected IItemStyle itemStyle;
 	
 	/**
 	 * @param name
 	 * @param category
 	 * @param value
 	 */
-	public AbstractNodes(String name, String category, String value, String label) {
+	public AbstractNodes(String name, String category, String value, String label, IItemStyle itemStyle) {
 
 		this.name = name;
 		this.category = category;
 		this.value = value;
 		this.label = label;
+		this.itemStyle = itemStyle;
+	}
+	@Override
+	public IItemStyle getItemStyle() {
+		return this.itemStyle;
 	}
 	@Override
 	public String getCategory() {
