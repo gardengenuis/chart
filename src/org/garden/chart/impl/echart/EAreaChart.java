@@ -30,18 +30,19 @@
  */
 package org.garden.chart.impl.echart;
 
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
 import org.garden.chart.model.IXYAxis;
 
 /** 
-* @ClassName: EKChart 
+* @ClassName: ELineChart 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月3日 下午2:43:14 
+* @date 2016年3月3日 下午3:30:51 
 */
-public class EKChart extends EAxisChart {
+public class EAreaChart extends EAxisChart {
 
 	/**
 	 * @param title
@@ -52,9 +53,15 @@ public class EKChart extends EAxisChart {
 	 * @param templatePath
 	 * @param templateName
 	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
+	public EAreaChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
 			String templateName) {
 		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
+
+	}
+	
+	public EAreaChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
+			String templateName) {
+		super(title, legend, dataZoom, series, xAxis, yAxis, templatePath, templateName);
 
 	}
 
@@ -65,15 +72,18 @@ public class EKChart extends EAxisChart {
 	 * @param xAxis
 	 * @param yAxis
 	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+	public EAreaChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
 		super(title, legend, null, series, xAxis, yAxis);
-
-	}
-
-	@Override
-	protected String getTemplateName() {
-		return Constants.TEMPLATE_NAME_K;
+		
 	}
 	
-
+	public EAreaChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+		super(title, legend, dataZoom, series, xAxis, yAxis);
+		
+	}
+	
+	@Override
+	protected String getTemplateName() {
+		return Constants.TEMPLATE_NAME_AREA_AXIS;
+	}
 }

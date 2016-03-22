@@ -28,52 +28,47 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart.impl.echart;
-
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-import org.garden.chart.model.IXYAxis;
+package org.garden.chart.model;
 
 /** 
-* @ClassName: EKChart 
+* @ClassName: AbstractTitle 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月3日 下午2:43:14 
+* @date 2016年3月3日 下午1:59:12 
 */
-public class EKChart extends EAxisChart {
-
-	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 * @param templatePath
-	 * @param templateName
-	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
-			String templateName) {
-		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
-
-	}
-
-	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, null, series, xAxis, yAxis);
-
-	}
-
-	@Override
-	protected String getTemplateName() {
-		return Constants.TEMPLATE_NAME_K;
-	}
+public abstract class AbstractDataZoom implements IDataZoom {
+	protected String show;
+	protected String realtime;
+	protected String start;
+	protected String end;
 	
-
+	/**
+	 * @param show
+	 * @param realtime
+	 * @param start
+	 * @param end
+	 */
+	public AbstractDataZoom(String show, String realtime, String start, String end) {
+		super();
+		this.show = show;
+		this.realtime = realtime;
+		this.start = start;
+		this.end = end;
+	}
+	@Override
+	public String getShow() {
+		return this.show;
+	}
+	@Override
+	public String getRealtime() {
+		return this.realtime;
+	}
+	@Override
+	public String getStart() {
+		return this.start;
+	}
+	@Override
+	public String getEnd() {
+		return this.end;
+	}
 }

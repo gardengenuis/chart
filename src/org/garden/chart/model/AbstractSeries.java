@@ -42,9 +42,12 @@ public abstract class AbstractSeries implements ISeries {
 	protected String type;
 	protected String name;
 	protected String stack;
+	
 	protected List<ISeriesData> data;
 	protected List<ICategories> categories;
 	protected List<ISeries> series;
+	protected String yAxisIndex;
+	
 	
 	/**
 	 * @param type
@@ -55,7 +58,7 @@ public abstract class AbstractSeries implements ISeries {
 	 * @param series
 	 */
 	public AbstractSeries(String type, String name, String stack, List<ISeriesData> data, List<ICategories> categories,
-			List<ISeries> series) {
+			List<ISeries> series, String yAxisIndex) {
 
 		this.type = type;
 		this.name = name;
@@ -63,6 +66,7 @@ public abstract class AbstractSeries implements ISeries {
 		this.data = data;
 		this.categories = categories;
 		this.series = series;
+		this.yAxisIndex = yAxisIndex;
 	}
 	@Override
 	public String getType() {
@@ -92,6 +96,10 @@ public abstract class AbstractSeries implements ISeries {
 	public List<ISeries> getSeries() {
 
 		return this.series;
+	}
+	@Override
+	public String getYAxisIndex() {
+		return this.yAxisIndex;
 	}
 	
 

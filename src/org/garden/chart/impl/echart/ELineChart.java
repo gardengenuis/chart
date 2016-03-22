@@ -54,7 +54,7 @@ public class ELineChart extends EAxisChart {
 	 */
 	public ELineChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
 			String templateName) {
-		super(title, legend, series, xAxis, yAxis, templatePath, templateName);
+		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
 
 	}
 
@@ -66,7 +66,7 @@ public class ELineChart extends EAxisChart {
 	 * @param yAxis
 	 */
 	public ELineChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, series, xAxis, yAxis);
+		super(title, legend, null, series, xAxis, yAxis);
 		
 	}
 	

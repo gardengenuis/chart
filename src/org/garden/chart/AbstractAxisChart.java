@@ -30,6 +30,7 @@
  */
 package org.garden.chart;
 
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
@@ -52,8 +53,8 @@ public abstract class AbstractAxisChart extends AbstractChart implements IAxisCh
 	 * @param xAxis
 	 * @param yAxis
 	 */
-	protected AbstractAxisChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, series);
+	protected AbstractAxisChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+		super(title, legend, dataZoom, series);
 		this.xAxis = xAxis;
 		this.yAxis = yAxis;
 	}

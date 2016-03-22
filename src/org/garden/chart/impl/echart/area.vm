@@ -14,10 +14,19 @@
 		 #end
 		]
     },
+    #if( $chart.dataZoom)
+    dataZoom : {
+        show : $chart.dataZoom.show,
+        realtime: $chart.dataZoom.realtime,
+        start : $chart.dataZoom.start,
+          end : $chart.dataZoom.end
+    },
+    #end
     xAxis : [
     	#foreach($axis in $chart.xAxis.axis)
         {
             type : '$!{axis.type}',
+            boundaryGap : true,
             data : [
             #foreach($data in $axis.data)
 			'$!{data}'#if( $foreach.hasNext ),#end
@@ -40,6 +49,7 @@
             type:'$!{series.type}',
             stack: '$!{series.stack}',
             #if( $series.yAxisIndex)yAxisIndex:${series.yAxisIndex},#end
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data:[
             #foreach($data in $series.data)
             '$!{data.value}'#if( $foreach.hasNext ),#end

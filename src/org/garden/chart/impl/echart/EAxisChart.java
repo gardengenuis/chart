@@ -35,6 +35,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.garden.chart.AbstractAxisChart;
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
@@ -60,14 +61,14 @@ public class EAxisChart extends AbstractAxisChart {
 	 * @param xAxis
 	 * @param yAxis
 	 */
-	protected EAxisChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath, String templateName) {
-		super(title, legend, series, xAxis, yAxis);
+	protected EAxisChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath, String templateName) {
+		super(title, legend, dataZoom, series, xAxis, yAxis);
 		this.templateName = templateName;
 		this.templatePath = templatePath;
 	}
 	
-	protected EAxisChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, series, xAxis, yAxis);
+	protected EAxisChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+		super(title, legend, dataZoom, series, xAxis, yAxis);
 		this.templateName = "/" + this.getClass().getPackage().getName().replaceAll("\\.", "/") + "/" + getTemplateName();
 		this.templatePath = null;
 	}

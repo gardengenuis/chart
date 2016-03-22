@@ -30,6 +30,7 @@
  */
 package org.garden.chart;
 
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
@@ -44,7 +45,7 @@ public abstract class AbstractChart implements IChart {
 	protected ITitle title;
 	protected ILegend legend;
 	protected ISeries series;
-	
+	protected IDataZoom dataZoom;
 	
 	/**
 	 * @param title
@@ -55,6 +56,14 @@ public abstract class AbstractChart implements IChart {
 		this.title = title;
 		this.legend = legend;
 		this.series = series;
+		this.dataZoom = null;
+	}
+	
+	protected AbstractChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series) {
+		this.title = title;
+		this.legend = legend;
+		this.series = series;
+		this.dataZoom = dataZoom;
 	}
 
 	/* (non-Javadoc)
@@ -83,5 +92,9 @@ public abstract class AbstractChart implements IChart {
 
 		return this.series;
 	}
-
+	
+	@Override
+	public IDataZoom getDataZoom() {
+		return this.dataZoom;
+	}
 }

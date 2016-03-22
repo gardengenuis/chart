@@ -54,13 +54,13 @@ public class ESeries extends AbstractSeries {
 	 * @param series
 	 */
 	public ESeries(String type, String name, String stack, List<ISeriesData> data, List<ICategories> categories,
-			List<ISeries> series) {
-		super(type, name, stack, data, categories, series);
+			List<ISeries> series, String yAxisIndex) {
+		super(type, name, stack, data, categories, series, yAxisIndex);
 
 	}
 
 	public ESeries(List<ISeries> series) {
-		super(null, null, null, null, null, series);
+		super(null, null, null, null, null, series, null);
 
 	}
 }

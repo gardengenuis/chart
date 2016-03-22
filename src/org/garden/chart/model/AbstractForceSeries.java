@@ -48,7 +48,7 @@ public abstract class AbstractForceSeries extends AbstractSeries implements IFor
 	 */
 	public AbstractForceSeries(String type, String name, String stack, List<ISeriesData> data, List<ICategories> categories,
 			List<ISeries> series, List<INodes> nodes, List<ILinks> links) {
-		super( type, name, stack, data, categories, series);
+		super( type, name, stack, data, categories, series, null);
 		this.nodes = nodes;
 		this.links = links;
 	}

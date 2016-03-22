@@ -30,6 +30,7 @@
  */
 package org.garden.chart;
 
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
@@ -45,5 +46,6 @@ public interface IChart {
 	public ITitle getTitle();
 	public ILegend getLegend();
 	public ISeries getSeries();
+	public IDataZoom getDataZoom();
 	public String toScript();
 }

@@ -45,4 +45,5 @@ public interface ISeries {
 	public List<ISeriesData> getData();
 	public List<ICategories> getCategories();
 	public List<ISeries> getSeries();
+	public String getYAxisIndex();
 }

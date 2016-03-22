@@ -50,7 +50,7 @@ public class EBarChart extends EAxisChart {
 	 * @param yAxis
 	 */
 	public EBarChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, series, xAxis, yAxis);
+		super(title, legend, null, series, xAxis, yAxis);
 	}
 	/**
 	 * @param title
@@ -63,7 +63,7 @@ public class EBarChart extends EAxisChart {
 	 */
 	public EBarChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
 			String templateName) {
-		super(title, legend, series, xAxis, yAxis, templatePath, templateName);
+		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
 
 	}
 	

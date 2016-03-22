@@ -42,6 +42,7 @@ public class Constants {
 	public static final String TEMPLATE_NAME_K = "k.vm";
 	public static final String TEMPLATE_NAME_FORCE = "force.vm";
 	public static final String TEMPLATE_NAME_AXIS = "axis.vm";
+	public static final String TEMPLATE_NAME_AREA_AXIS = "area.vm";
 	
 	
 }

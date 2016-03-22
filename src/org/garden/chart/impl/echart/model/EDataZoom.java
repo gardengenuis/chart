@@ -28,52 +28,25 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart.impl.echart;
+package org.garden.chart.impl.echart.model;
 
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-import org.garden.chart.model.IXYAxis;
+import org.garden.chart.model.AbstractDataZoom;
 
 /** 
-* @ClassName: EKChart 
+* @ClassName: ENodes 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月3日 下午2:43:14 
+* @date 2016年3月4日 下午3:49:00 
 */
-public class EKChart extends EAxisChart {
+public class EDataZoom extends AbstractDataZoom {
 
 	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 * @param templatePath
-	 * @param templateName
+	 * @param show
+	 * @param realtime
+	 * @param start
+	 * @param end
 	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
-			String templateName) {
-		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
-
+	public EDataZoom(String show, String realtime, String start, String end) {
+		super(show, realtime, start, end);
 	}
-
-	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, null, series, xAxis, yAxis);
-
-	}
-
-	@Override
-	protected String getTemplateName() {
-		return Constants.TEMPLATE_NAME_K;
-	}
-	
-
 }

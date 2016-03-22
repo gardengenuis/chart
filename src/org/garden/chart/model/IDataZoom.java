@@ -28,52 +28,17 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.garden.chart.impl.echart;
-
-import org.garden.chart.model.ILegend;
-import org.garden.chart.model.ISeries;
-import org.garden.chart.model.ITitle;
-import org.garden.chart.model.IXYAxis;
+package org.garden.chart.model;
 
 /** 
-* @ClassName: EKChart 
+* @ClassName: IDataZoom 
 * @Description: TODO
 * @author Garden Lee
-* @date 2016年3月3日 下午2:43:14 
+* @date 2016年3月22日 下午2:51:57 
 */
-public class EKChart extends EAxisChart {
-
-	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 * @param templatePath
-	 * @param templateName
-	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis, String templatePath,
-			String templateName) {
-		super(title, legend, null, series, xAxis, yAxis, templatePath, templateName);
-
-	}
-
-	/**
-	 * @param title
-	 * @param legend
-	 * @param series
-	 * @param xAxis
-	 * @param yAxis
-	 */
-	public EKChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
-		super(title, legend, null, series, xAxis, yAxis);
-
-	}
-
-	@Override
-	protected String getTemplateName() {
-		return Constants.TEMPLATE_NAME_K;
-	}
-	
-
+public interface IDataZoom {
+	public String getShow();
+	public String getRealtime();
+	public String getStart();
+	public String getEnd();
 }
