@@ -14,6 +14,14 @@
 		 #end
 		]
     },
+	#if( $chart.dataZoom)
+    dataZoom : {
+        show : $chart.dataZoom.show,
+        realtime: $chart.dataZoom.realtime,
+        start : $chart.dataZoom.start,
+          end : $chart.dataZoom.end
+    },
+    #end
     xAxis : [
     	#foreach($axis in $chart.xAxis.axis)
         {

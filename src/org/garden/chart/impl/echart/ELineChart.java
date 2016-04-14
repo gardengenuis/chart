@@ -30,6 +30,7 @@
  */
 package org.garden.chart.impl.echart;
 
+import org.garden.chart.model.IDataZoom;
 import org.garden.chart.model.ILegend;
 import org.garden.chart.model.ISeries;
 import org.garden.chart.model.ITitle;
@@ -67,6 +68,11 @@ public class ELineChart extends EAxisChart {
 	 */
 	public ELineChart(ITitle title, ILegend legend, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
 		super(title, legend, null, series, xAxis, yAxis);
+		
+	}
+	
+	public ELineChart(ITitle title, ILegend legend, IDataZoom dataZoom, ISeries series, IXYAxis xAxis, IXYAxis yAxis) {
+		super(title, legend, dataZoom, series, xAxis, yAxis);
 		
 	}
 	
